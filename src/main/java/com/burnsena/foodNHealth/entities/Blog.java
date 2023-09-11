@@ -1,23 +1,26 @@
 package com.burnsena.foodNHealth.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Builder;
+import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Builder
+@Data
 public class Blog {
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     private Date created;
     private Date modified;
     private String content;
     private String title;
     //will change with user type
     @ManyToOne
-    private User author;
+    private AppUser author;
+    @ManyToMany
+    private List<Tag> tags;
 }
