@@ -1,5 +1,5 @@
 package com.burnsena.foodNHealth.enums;
 
-public enum UserType {
+public enum UserRole {
     AUTHOR, SUBSCRIBER, ADMIN;
 }
